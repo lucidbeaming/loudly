@@ -23,7 +23,7 @@ function TrendingSongs() {
       <Stack gap={3}>
         {songs.map((song, index) => (
           <Row key={index}>
-            <SongBlock />
+            <SongBlock song={song} playing={playing} setPlaying={setPlaying} />
           </Row>
         ))}
       </Stack>
