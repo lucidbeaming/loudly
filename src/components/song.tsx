@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { LikeSong, Song } from '../data/api'
+import React from 'react'
 import SoundPlayer from '../components/audio'
 
 function SongBlock(props: any) {
