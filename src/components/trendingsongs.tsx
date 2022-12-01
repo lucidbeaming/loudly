@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Stack from 'react-bootstrap/Stack'
 import { GetSongs, Song } from '../data/api'
@@ -10,7 +9,7 @@ function TrendingSongs() {
   const [songs, setSongs] = useState<Song[]>([])
 
   useEffect(() => {
-    if (songs.length == 0) {
+    if (songs.length === 0) {
       GetSongs().then(res => {
         setSongs(res)
       })

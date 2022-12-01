@@ -1,0 +1,23 @@
+.song-block {
+  display: flex;
+  align-items: center;
+  background-color:#fafafa;
+}
+
+.song-thumb {
+  max-width:150px;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  margin-right:2em;
+}
+
+.song-thumb img {
+  width: 100%;
+  height: auto;
+}
+
+.song-block button {
+  display: flex;
+  align-items: center;
+}

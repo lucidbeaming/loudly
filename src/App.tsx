@@ -1,7 +1,5 @@
 import React from 'react'
 import Container from 'react-bootstrap/Container'
-import Button from 'react-bootstrap/Button'
-import { GetSongs, LikeSong } from './data/api'
 import TrendingSongs from './components/trendingsongs'
 import './styles/styles.css';
 
