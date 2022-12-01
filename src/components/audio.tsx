@@ -15,10 +15,52 @@ interface passedProps {
 function SoundPlayer({ setPlaying, id, playing, file, type}: passedProps) {
   const [liked, setLiked] = useState<boolean>(false)
   const [paused, setPaused] = useState<boolean>(false)
+  const audioInstance = useRef<HTMLAudioElement>(null)
+
+  const play = () => {
+    const allPlayers = document.getElementsByTagName('audio')
+    const playersArray = [...allPlayers]
+    playersArray.map(player => {
+      player.pause()
+      return null
+    })
+    audioInstance?.current?.play()
+    setPlaying(id)
+  }
+
+  const pause = () => {
+    audioInstance?.current?.pause()
+    setPlaying('')
+  }
+
+  const togglePlay = () => {
+    if (!audioInstance?.current?.paused) {
+      pause()
+    } else {
+      play()
+    }
+    setPaused(!paused)
+  }
+
+  const toggleLike = () => {
+    if (!liked) {
+      LikeSong(id).then(res => {
+          console.log("Liked " + id)
+          // Output for demo only. Production would use account methods.
+      })
+    }
+    setLiked(!liked)
+  }
+
+  useEffect(() => {
+    if (audioInstance?.current?.paused) {
+      setPaused(true)
+    }
+  }, [playing])
 
   return (
     <div className="song-player">
-      <audio>
+      <audio ref={audioInstance}>
         <source src={ file } type={ type } />
         Your browser does not support the audio tag.
       </audio>
